@@ -19,13 +19,7 @@
                             <tr>
                                 <td>{{ ucfirst($k) }}</td>
                                 <td>
-                                    @if (is_array($v))
-                                        @foreach ($v as $label => $val)
-                                            {{ ucfirst($label) }}: {{ number_format($val, 4) }}<br>
-                                        @endforeach
-                                    @else
-                                        {{ number_format($v, 4) }}
-                                    @endif
+                                    {{ number_format($v * 100, 2) }}%
                                 </td>
                             </tr>
                         @endforeach
@@ -42,7 +36,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($ds->belief as $k => $v)
+                            @foreach (collect($ds->belief)->sortDesc() as $k => $v)
                                 <tr>
                                     <td>{{ ucfirst($k) }}</td>
                                     <td>{{ number_format($v * 100, 2) }}%</td>

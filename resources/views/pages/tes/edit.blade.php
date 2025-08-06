@@ -28,7 +28,8 @@
                                 <label>Kategori</label>
                                 <select name="kategori_bakat" class="form-control" required>
                                     @foreach ($kategori as $k)
-                                        <option value="{{ $k }}" {{ $tes->kategori == $k ? 'selected' : '' }}>
+                                        <option value="{{ $k }}"
+                                            {{ $tes->kategori_bakat == $k ? 'selected' : '' }}>
                                             {{ $k }}
                                         </option>
                                     @endforeach
