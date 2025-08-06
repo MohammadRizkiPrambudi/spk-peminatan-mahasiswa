@@ -13,6 +13,7 @@
                         <label for="matakuliah">Nama Matakuliah</label>
                         <select name="matakuliah" id="matakuliah" class="form-control" required>
                             <option value="">-- Pilih Matakuliah --</option>
+                            {{ var_dump($data->matakuliah) }}
                             @foreach ($matakuliah as $mk)
                                 <option value="{{ $mk }}" {{ $data->matakuliah == $mk ? 'selected' : '' }}>
                                     {{ $mk }}</option>
