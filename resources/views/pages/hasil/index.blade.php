@@ -26,7 +26,7 @@
                                     <td>{{ $d->mahasiswa->nim }}</td>
                                     <td>{{ $d->mahasiswa->prodi }}</td>
                                     <td><strong>{{ $d->peminatan_utama }}</strong></td>
-                                    <td>{{ number_format($d->nilai_kepercayaan * 100, 2) }}%</td>
+                                    <td>{{ number_format($d->nilai_kepercayaan * 100) }}%</td>
                                     <td>
                                         <a href="{{ route('admin.proses.index') }}" class="btn btn-sm btn-warning">Ulang</a>
                                         <button class="btn btn-sm btn-info btn-detail"
@@ -81,8 +81,8 @@
                             <thead><tr><th>Bidang</th><th>Nilai BPA</th></tr></thead>
                             <tbody>
                                 ${Object.entries(data.fuzzy).map(([k, v]) => `
-                                                                <tr><td>${k}</td><td>${Number(v).toFixed(4)}</td></tr>
-                                                            `).join('')}
+                                                                                    <tr><td>${k}</td><td>${Math.round(v * 100)}%</td></tr>
+                                                                                `).join('')}
                             </tbody>
                         </table>
 
@@ -91,8 +91,8 @@
                             <thead><tr><th>Bidang</th><th>Belief (Kepercayaan)</th></tr></thead>
                             <tbody>
                                 ${Object.entries(data.ds).map(([k, v]) => `
-                                                                <tr><td>${k}</td><td>${Number(v).toFixed(4)}</td></tr>
-                                                            `).join('')}
+                                                                                   <tr><td>${k}</td><td>${Math.round(v * 100)}%</td></tr>
+                                                                                `).join('')}
                             </tbody>
                         </table>
 

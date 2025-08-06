@@ -19,7 +19,7 @@
                             <tr>
                                 <td>{{ ucfirst($k) }}</td>
                                 <td>
-                                    {{ number_format($v * 100, 2) }}%
+                                    {{ number_format($v * 100) }}%
                                 </td>
                             </tr>
                         @endforeach
@@ -39,7 +39,7 @@
                             @foreach (collect($ds->belief)->sortDesc() as $k => $v)
                                 <tr>
                                     <td>{{ ucfirst($k) }}</td>
-                                    <td>{{ number_format($v * 100, 2) }}%</td>
+                                    <td>{{ number_format($v * 100) }}%</td>
                                 </tr>
                             @endforeach
                         </tbody>

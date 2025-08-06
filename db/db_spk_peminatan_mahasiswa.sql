@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 06 Agu 2025 pada 05.55
+-- Waktu pembuatan: 06 Agu 2025 pada 09.58
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -78,7 +78,7 @@ CREATE TABLE `fuzzy_results` (
 --
 
 INSERT INTO `fuzzy_results` (`id`, `mahasiswa_id`, `output_fuzzy`, `created_at`, `updated_at`) VALUES
-(9, 2, '{\"AI\": 0.3714, \"θ\": 0, \"Jaringan\": 0.3857, \"Sistem Cerdas\": 0.2429}', '2025-08-05 21:42:13', '2025-08-05 22:47:55');
+(9, 2, '{\"AI\": 0.371, \"θ\": 0, \"Jaringan\": 0.386, \"Sistem Cerdas\": 0.243}', '2025-08-05 21:42:13', '2025-08-06 02:56:48');
 
 -- --------------------------------------------------------
 
@@ -296,9 +296,9 @@ CREATE TABLE `preferensi_minat` (
 --
 
 INSERT INTO `preferensi_minat` (`id`, `mahasiswa_id`, `bidang`, `tingkat_minat`, `created_at`, `updated_at`) VALUES
-(17, 2, 'Sistem Cerdas', 'tinggi', '2025-07-27 22:02:59', '2025-08-05 21:23:55'),
+(17, 2, 'Sistem Cerdas', 'rendah', '2025-07-27 22:02:59', '2025-08-06 02:50:55'),
 (18, 2, 'AI', 'tinggi', '2025-07-27 22:02:59', '2025-08-05 21:23:55'),
-(19, 2, 'Jaringan', 'tinggi', '2025-07-27 22:02:59', '2025-08-05 22:45:26');
+(19, 2, 'Jaringan', 'tinggi', '2025-07-27 22:02:59', '2025-08-06 02:42:56');
 
 -- --------------------------------------------------------
 
@@ -320,7 +320,7 @@ CREATE TABLE `rekomendasi_peminatan` (
 --
 
 INSERT INTO `rekomendasi_peminatan` (`id`, `mahasiswa_id`, `peminatan_utama`, `nilai_kepercayaan`, `created_at`, `updated_at`) VALUES
-(9, 2, 'AI', 0.38, '2025-08-05 21:42:13', '2025-08-05 22:47:55');
+(9, 2, 'AI', 0.38, '2025-08-05 21:42:13', '2025-08-06 02:56:10');
 
 -- --------------------------------------------------------
 
