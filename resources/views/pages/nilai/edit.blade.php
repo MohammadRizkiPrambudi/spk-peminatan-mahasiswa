@@ -7,7 +7,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Edit Nilai Mahasiswa</h4>
-                        <h4 class="card-title">Edit Nilai Mahasiswa</h4>
                         <p class="card-description">Form edit data nilai mahasiswa</p>
 
                         <form action="{{ route('admin.nilai.update', $nilai->id) }}" method="POST">

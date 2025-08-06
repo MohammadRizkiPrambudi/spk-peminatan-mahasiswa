@@ -41,32 +41,34 @@ class FuzzyLogicService
     public function prosesFuzzifikasi(array $dataNilai, array $dataMinat, int $mahasiswaId): array
     {
         $output = [];
-        $total  = 0;
 
         foreach ($dataNilai as $matakuliah => $nilai) {
-            $fuzzyTinggi = $this->fuzzifikasiNilai($nilai)['tinggi'];
+            $fuzzyTinggi = min($this->fuzzifikasiNilai($nilai)['tinggi'], 0.9);
 
-            // Ambil pemetaan matakuliah ke bidang
             $mapping = MatakuliahBidang::where('matakuliah', $matakuliah)->get();
 
             foreach ($mapping as $map) {
                 $bidang     = $map->bidang;
                 $bobotMK    = $map->bobot;
-                $bobotMinat = $this->bobotMinat($dataMinat[$bidang] ?? 'sedang'); // default 'sedang'
+                $bobotMinat = $this->bobotMinat($dataMinat[$bidang] ?? 'sedang');
 
                 $bpa = $fuzzyTinggi * $bobotMinat * $bobotMK;
 
-                if (! isset($output[$bidang])) {
-                    $output[$bidang] = 0;
-                }
-
-                $output[$bidang] += round($bpa, 4);
+                $output[$bidang] = ($output[$bidang] ?? 0) + round($bpa, 4);
             }
         }
 
-        // Hitung θ
-        $totalBpa     = array_sum($output);
-        $output['θ'] = max(0, round(1 - $totalBpa, 4));
+        // Normalisasi kalau total > 1
+        $totalBpa = array_sum($output);
+        if ($totalBpa > 1) {
+            foreach ($output as $bidang => $nilai) {
+                $output[$bidang] = round($nilai / $totalBpa, 4);
+            }
+            $totalBpa = array_sum($output);
+        }
+
+        // Tambahkan θ (ketidakpastian)
+        $output['θ'] = max(0.05, round(1 - $totalBpa, 4));
 
         // Simpan ke database
         FuzzyResult::updateOrCreate(
@@ -76,4 +78,5 @@ class FuzzyLogicService
 
         return $output;
     }
+
 }

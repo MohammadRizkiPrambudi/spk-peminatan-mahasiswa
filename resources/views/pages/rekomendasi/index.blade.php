@@ -45,7 +45,7 @@
                             @foreach ($ds->belief as $k => $v)
                                 <tr>
                                     <td>{{ ucfirst($k) }}</td>
-                                    <td>{{ number_format($v, 4) }}</td>
+                                    <td>{{ number_format($v * 100, 2) }}%</td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -29,17 +29,42 @@ class DempsterShaferService
             }
         }
 
-        $normalized = [];
-        $k          = 1 - $conflict;
+        $k = 1 - $conflict;
 
-        // Cegah pembagian dengan nol
         if ($k <= 0) {
-            // fallback ke BPA awal jika semua konflik
             return $bpa1;
         }
 
+        $normalized = [];
+        $total      = 0;
+
         foreach ($result as $key => $val) {
-            $normalized[$key] = round($val / $k, 6);
+            $norm = $val / $k;
+
+            // BATASI agar tidak lebih dari 0.95 per bidang
+            if ($norm > 0.95) {
+                $norm = 0.95;
+            }
+
+            $normalized[$key] = round($norm, 6);
+            $total += $normalized[$key];
+        }
+
+        // Pastikan ada theta (ketidakpastian) jika total < 1
+        if (! isset($normalized['θ'])) {
+            $normalized['θ'] = 0;
+        }
+
+        if ($total < 1) {
+            $normalized['θ'] += round(1 - $total, 6);
+        }
+
+        // Normalisasi ulang jika tetap over 1 (cadangan jaga-jaga)
+        $sum = array_sum($normalized);
+        if ($sum > 1) {
+            foreach ($normalized as $k => $v) {
+                $normalized[$k] = round($v / $sum, 6);
+            }
         }
 
         return $normalized;
