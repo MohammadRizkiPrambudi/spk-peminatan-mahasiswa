@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 06 Agu 2025 pada 09.58
+-- Waktu pembuatan: 06 Agu 2025 pada 15.12
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -78,7 +78,8 @@ CREATE TABLE `fuzzy_results` (
 --
 
 INSERT INTO `fuzzy_results` (`id`, `mahasiswa_id`, `output_fuzzy`, `created_at`, `updated_at`) VALUES
-(9, 2, '{\"AI\": 0.371, \"θ\": 0, \"Jaringan\": 0.386, \"Sistem Cerdas\": 0.243}', '2025-08-05 21:42:13', '2025-08-06 02:56:48');
+(9, 2, '{\"AI\": 0.5556, \"θ\": 0, \"Jaringan\": 0.0555, \"Sistem Cerdas\": 0.3889}', '2025-08-05 21:42:13', '2025-08-06 07:09:57'),
+(10, 3, '{\"AI\": 0.06, \"θ\": 0, \"Jaringan\": 0.84, \"Sistem Cerdas\": 0.1}', '2025-08-06 05:17:40', '2025-08-06 06:56:19');
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,8 @@ CREATE TABLE `mahasiswa` (
 
 INSERT INTO `mahasiswa` (`id`, `user_id`, `nama`, `nim`, `prodi`, `created_at`, `updated_at`) VALUES
 (2, 3, 'Mahasiswa', '24980192100', 'Teknik Informatika', '2025-07-27 21:49:36', '2025-07-27 21:49:36'),
-(3, 4, 'Erlangga', '212015242', 'Teknik Informatika', '2025-07-31 07:26:45', '2025-07-31 07:26:45');
+(3, 4, 'Erlangga', '212015242', 'Teknik Informatika', '2025-07-31 07:26:45', '2025-07-31 07:26:45'),
+(4, 5, 'Budi Santoso', '24980192106', 'Teknik Informatika', '2025-08-06 05:59:42', '2025-08-06 05:59:42');
 
 -- --------------------------------------------------------
 
@@ -124,20 +126,20 @@ CREATE TABLE `matakuliah_bidang` (
 --
 
 INSERT INTO `matakuliah_bidang` (`id`, `matakuliah`, `bidang`, `bobot`, `created_at`, `updated_at`) VALUES
-(1, 'Algoritma dan Struktur Data', 'AI', 0.6, NULL, NULL),
-(2, 'Algoritma dan Struktur Data', 'Sistem Cerdas', 0.4, NULL, NULL),
-(3, 'Jaringan Komputer', 'Jaringan', 1, NULL, NULL),
-(4, 'Grafika Komputer', 'AI', 1, NULL, NULL),
-(5, 'Pemrograman Jaringan', 'Jaringan', 1, NULL, NULL),
-(6, 'Sistem Digital', 'Sistem Cerdas', 0.5, '2025-08-05 20:35:28', '2025-08-05 20:35:28'),
-(7, 'Sistem Digital', 'AI', 0.3, '2025-08-05 20:36:16', '2025-08-05 20:36:16'),
-(8, 'Sistem Digital', 'Jaringan', 0.2, '2025-08-05 20:36:40', '2025-08-05 20:36:40'),
-(9, 'Pemrograman Beriorentasi Objek', 'Sistem Cerdas', 0.5, '2025-08-05 20:37:38', '2025-08-05 20:37:38'),
-(10, 'Pemrograman Beriorentasi Objek', 'AI', 0.4, '2025-08-05 20:38:48', '2025-08-05 20:38:48'),
-(11, 'Pemrograman Beriorentasi Objek', 'Jaringan', 0.1, '2025-08-05 20:39:34', '2025-08-05 20:39:34'),
-(12, 'Perancangan Sistem', 'Jaringan', 0.4, '2025-08-05 20:40:13', '2025-08-05 20:40:55'),
-(13, 'Perancangan Sistem', 'AI', 0.3, '2025-08-05 20:41:24', '2025-08-05 20:41:24'),
-(14, 'Perancangan Sistem', 'Sistem Cerdas', 0.3, '2025-08-05 20:41:48', '2025-08-05 20:41:48');
+(1, 'Algoritma Dan Struktur Data', 'AI', 0.4, NULL, '2025-08-06 05:02:46'),
+(2, 'Algoritma Dan Struktur Data', 'Sistem Cerdas', 0.6, NULL, '2025-08-06 05:06:28'),
+(15, 'Sistem Digital', 'AI', 0.2, '2025-08-06 05:52:08', '2025-08-06 05:52:08'),
+(16, 'Sistem Digital', 'Sistem Cerdas', 0.6, '2025-08-06 05:52:28', '2025-08-06 05:52:28'),
+(17, 'Sistem Digital', 'Jaringan', 0.2, '2025-08-06 05:52:59', '2025-08-06 05:52:59'),
+(18, 'Pemrograman Beriorentasi Objek', 'AI', 0.4, '2025-08-06 05:53:41', '2025-08-06 05:53:41'),
+(19, 'Pemrograman Beriorentasi Objek', 'Sistem Cerdas', 0.5, '2025-08-06 05:54:12', '2025-08-06 05:54:12'),
+(20, 'Pemrograman Beriorentasi Objek', 'Jaringan', 0.1, '2025-08-06 05:54:30', '2025-08-06 05:54:30'),
+(21, 'Perancangan Sistem', 'AI', 0.3, '2025-08-06 05:54:57', '2025-08-06 05:54:57'),
+(22, 'Perancangan Sistem', 'Sistem Cerdas', 0.5, '2025-08-06 05:55:26', '2025-08-06 05:55:26'),
+(23, 'Perancangan Sistem', 'Jaringan', 0.2, '2025-08-06 05:56:24', '2025-08-06 05:56:24'),
+(24, 'Jaringan Komputer', 'Jaringan', 1, '2025-08-06 05:56:52', '2025-08-06 05:56:52'),
+(25, 'Grafika Komputer', 'AI', 1, '2025-08-06 05:57:23', '2025-08-06 05:57:23'),
+(26, 'Pemrograman Jaringan', 'Jaringan', 1, '2025-08-06 05:57:42', '2025-08-06 05:57:42');
 
 -- --------------------------------------------------------
 
@@ -201,7 +203,8 @@ CREATE TABLE `model_has_roles` (
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
 (2, 'App\\Models\\User', 3),
-(2, 'App\\Models\\User', 4);
+(2, 'App\\Models\\User', 4),
+(2, 'App\\Models\\User', 5);
 
 -- --------------------------------------------------------
 
@@ -223,13 +226,27 @@ CREATE TABLE `nilai_akademik` (
 --
 
 INSERT INTO `nilai_akademik` (`id`, `mahasiswa_id`, `matakuliah`, `nilai`, `created_at`, `updated_at`) VALUES
-(17, 2, 'Algoritma Dan Struktur Data', 75.00, '2025-07-27 22:00:37', '2025-08-05 20:46:45'),
+(17, 2, 'Algoritma Dan Struktur Data', 85.00, '2025-07-27 22:00:37', '2025-08-06 05:00:27'),
 (18, 2, 'Sistem Digital', 90.00, '2025-07-27 22:00:37', '2025-07-27 22:00:37'),
-(19, 2, 'Pemrograman Beriorentasi Objek', 80.00, '2025-07-27 22:00:37', '2025-08-05 20:46:45'),
-(20, 2, 'Perancangan Sistem', 80.00, '2025-07-27 22:00:37', '2025-07-27 22:00:37'),
-(21, 2, 'Jaringan Komputer', 80.00, '2025-07-27 22:00:37', '2025-08-05 20:46:45'),
+(19, 2, 'Pemrograman Beriorentasi Objek', 75.00, '2025-07-27 22:00:37', '2025-08-06 05:00:41'),
+(20, 2, 'Perancangan Sistem', 70.00, '2025-07-27 22:00:37', '2025-08-06 05:00:53'),
+(21, 2, 'Jaringan Komputer', 50.00, '2025-07-27 22:00:37', '2025-08-06 05:01:09'),
 (22, 2, 'Grafika Komputer', 85.00, '2025-07-27 22:00:37', '2025-08-05 20:46:45'),
-(23, 2, 'Pemrograman Jaringan', 70.00, '2025-07-27 22:00:37', '2025-08-05 20:46:45');
+(23, 2, 'Pemrograman Jaringan', 65.00, '2025-07-27 22:00:37', '2025-08-06 05:01:25'),
+(24, 3, 'Algoritma Dan Struktur Data', 70.00, '2025-08-06 05:13:34', '2025-08-06 05:13:34'),
+(25, 3, 'Sistem Digital', 60.00, '2025-08-06 05:13:51', '2025-08-06 05:13:51'),
+(26, 3, 'Pemrograman Beriorentasi Objek', 65.00, '2025-08-06 05:14:06', '2025-08-06 05:14:06'),
+(27, 3, 'Perancangan Sistem', 75.00, '2025-08-06 05:14:49', '2025-08-06 05:14:49'),
+(28, 3, 'Jaringan Komputer', 90.00, '2025-08-06 05:15:03', '2025-08-06 05:15:03'),
+(29, 3, 'Grafika Komputer', 60.00, '2025-08-06 05:15:20', '2025-08-06 05:15:20'),
+(30, 3, 'Pemrograman Jaringan', 80.00, '2025-08-06 05:15:36', '2025-08-06 05:15:36'),
+(31, 4, 'Algoritma Dan Struktur Data', 90.00, '2025-08-06 08:07:11', '2025-08-06 08:07:11'),
+(32, 4, 'Sistem Digital', 95.00, '2025-08-06 08:07:39', '2025-08-06 08:07:39'),
+(33, 4, 'Pemrograman Beriorentasi Objek', 90.00, '2025-08-06 08:08:02', '2025-08-06 08:08:02'),
+(34, 4, 'Perancangan Sistem', 90.00, '2025-08-06 08:08:34', '2025-08-06 08:08:34'),
+(35, 4, 'Jaringan Komputer', 65.00, '2025-08-06 08:08:59', '2025-08-06 08:08:59'),
+(36, 4, 'Grafika Komputer', 50.00, '2025-08-06 08:09:21', '2025-08-06 08:09:21'),
+(37, 4, 'Pemrograman Jaringan', 50.00, '2025-08-06 08:09:47', '2025-08-06 08:09:47');
 
 -- --------------------------------------------------------
 
@@ -320,7 +337,9 @@ CREATE TABLE `rekomendasi_peminatan` (
 --
 
 INSERT INTO `rekomendasi_peminatan` (`id`, `mahasiswa_id`, `peminatan_utama`, `nilai_kepercayaan`, `created_at`, `updated_at`) VALUES
-(9, 2, 'AI', 0.38, '2025-08-05 21:42:13', '2025-08-06 02:56:10');
+(9, 2, 'AI', 0.37, '2025-08-05 21:42:13', '2025-08-06 07:55:36'),
+(10, 3, 'Jaringan', 0.44, '2025-08-06 05:17:40', '2025-08-06 07:23:15'),
+(11, 4, 'Sistem Cerdas', 0.38, '2025-08-06 08:11:15', '2025-08-06 08:11:15');
 
 -- --------------------------------------------------------
 
@@ -375,9 +394,15 @@ CREATE TABLE `tes_bakat` (
 --
 
 INSERT INTO `tes_bakat` (`id`, `mahasiswa_id`, `kategori_bakat`, `skor`, `created_at`, `updated_at`) VALUES
-(17, 2, 'Sistem Cerdas', 80.00, '2025-07-27 22:03:53', '2025-07-27 22:03:53'),
+(17, 2, 'Sistem Cerdas', 75.00, '2025-07-27 22:03:53', '2025-08-06 05:10:17'),
 (18, 2, 'AI', 80.00, '2025-07-27 22:03:53', '2025-08-05 20:46:54'),
-(19, 2, 'Jaringan', 75.00, '2025-07-27 22:03:53', '2025-07-27 22:03:53');
+(19, 2, 'Jaringan', 80.00, '2025-07-27 22:03:53', '2025-08-06 05:10:03'),
+(20, 3, 'AI', 85.00, '2025-08-06 05:16:14', '2025-08-06 05:16:14'),
+(21, 3, 'Jaringan', 90.00, '2025-08-06 05:16:29', '2025-08-06 05:16:29'),
+(22, 3, 'Sistem Cerdas', 70.00, '2025-08-06 05:17:19', '2025-08-06 05:17:19'),
+(23, 4, 'Sistem Cerdas', 80.00, '2025-08-06 08:10:09', '2025-08-06 08:10:09'),
+(24, 4, 'AI', 75.00, '2025-08-06 08:10:37', '2025-08-06 08:10:37'),
+(25, 4, 'Jaringan', 85.00, '2025-08-06 08:11:01', '2025-08-06 08:11:01');
 
 -- --------------------------------------------------------
 
@@ -403,7 +428,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@example.com', NULL, '$2y$12$WfzzsMnIShPUwowWf3EWQeM0a7ORHsKaFICAsbR/yKvos9j13X1LG', NULL, '2025-07-25 20:38:46', '2025-07-25 20:38:46'),
 (3, 'Mahasiswa', 'mahasiswa@example.com', NULL, '$2y$12$6p5zjvAFdRGGjsU4/DII/ealiVQ.yQ0I.JhtNaVEGvk12e9JnoiIS', NULL, '2025-07-27 21:49:36', '2025-07-27 21:49:36'),
-(4, 'Erlangga', 'erlanggarizkimura9@gmail.com', NULL, '$2y$12$2nYtkEtCv.2.huU4o91obOiGP2E5yn2z2Qbuygbg.fuyrciW/veRS', NULL, '2025-07-31 07:26:45', '2025-07-31 07:26:45');
+(4, 'Erlangga', 'erlanggarizkimura9@gmail.com', NULL, '$2y$12$2nYtkEtCv.2.huU4o91obOiGP2E5yn2z2Qbuygbg.fuyrciW/veRS', NULL, '2025-07-31 07:26:45', '2025-07-31 07:26:45'),
+(5, 'Budi Santoso', 'budi10@gmail.com', NULL, '$2y$12$hu9/kgtpKXRROqgD8C4YN.Om2VfnW1Z/C5TrE4SFV7Q78hR/z24/a', NULL, '2025-08-06 05:59:42', '2025-08-06 05:59:42');
 
 --
 -- Indexes for dumped tables
@@ -554,19 +580,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `fuzzy_results`
 --
 ALTER TABLE `fuzzy_results`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `matakuliah_bidang`
 --
 ALTER TABLE `matakuliah_bidang`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -578,7 +604,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `nilai_akademik`
 --
 ALTER TABLE `nilai_akademik`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT untuk tabel `permissions`
@@ -602,7 +628,7 @@ ALTER TABLE `preferensi_minat`
 -- AUTO_INCREMENT untuk tabel `rekomendasi_peminatan`
 --
 ALTER TABLE `rekomendasi_peminatan`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `roles`
@@ -614,13 +640,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT untuk tabel `tes_bakat`
 --
 ALTER TABLE `tes_bakat`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
